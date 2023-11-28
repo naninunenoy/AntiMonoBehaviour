@@ -125,6 +125,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "jp.hadashikick.vcontainer": {
+      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "388ebd40ed8ecb376552e07e35b1c82ef084d3ac"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
