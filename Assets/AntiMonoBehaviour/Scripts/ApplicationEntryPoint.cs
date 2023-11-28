@@ -1,23 +1,16 @@
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using VContainer.Unity;
 
 namespace AntiMonoBehaviour
 {
-    public static class ApplicationEntryPoint
+    public class ApplicationEntryPoint : IAsyncStartable
     {
-        [RuntimeInitializeOnLoadMethod]
-        static void Entry()
-        {
-            if (SceneManager.GetActiveScene().name != "Entry") return;
-            EntryAsync(Application.exitCancellationToken).Forget();
-        }
-
-        static UniTaskVoid EntryAsync(CancellationToken cancel)
+        public UniTask StartAsync(CancellationToken cancellation)
         {
             Debug.Log("Entry");
-            return default;
+            return UniTask.CompletedTask;
         }
     }
 }
