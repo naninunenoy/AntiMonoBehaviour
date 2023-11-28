@@ -1,7 +1,13 @@
 {
     "name": "AntiMonoBehaviour",
     "rootNamespace": "AntiMonoBehaviour",
-    "references": [],
+    "references": [
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "UniTask",
+        "UniTask.Addressables",
+        "VContainer"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
