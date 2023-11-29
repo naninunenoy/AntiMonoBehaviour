@@ -1,14 +1,15 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace AntiMonoBehaviour.Processes
 {
     public class TitleProcess : ProcessBase
     {
-        public UniTask WaitForPressStartButtonAsync(CancellationToken cancel)
+        public async UniTask WaitForPressStartButtonAsync(CancellationToken cancel)
         {
-            throw new NotImplementedException("TODO");
+            Debug.Log("タイトル");
+            await UniTask.Never(cancel);
         }
     }
 }

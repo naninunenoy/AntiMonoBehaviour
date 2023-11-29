@@ -49,3 +49,6 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   splashScreenSettings: {fileID: 11400000, guid: 24ce5413c8ad6994183a62bab68143b3, type: 2}
+  titleProcessSettings: {fileID: 11400000, guid: ad388f0130466d0459f01ae9d1c64108, type: 2}
+  gameProcessSettings: {fileID: 11400000, guid: 462339815d2c6064d95b213db7750874, type: 2}
+  resultProcessSettings: {fileID: 11400000, guid: 355e4601ced73c046b8bf9e18b553565, type: 2}

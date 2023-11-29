@@ -13,7 +13,7 @@ namespace AntiMonoBehaviour.Processes
         public async UniTask ShowSplashScreenAsync(CancellationToken cancel)
         {
             Debug.Log(_settings.SplashScreenMessage);
-            await UniTask.Never(cancel);//一旦ここで停止
+            await UniTask.Yield(cancel);
         }
     }
 }
