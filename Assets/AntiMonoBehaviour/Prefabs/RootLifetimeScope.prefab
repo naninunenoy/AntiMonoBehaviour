@@ -48,4 +48,4 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  entrySceneName: Entry
+  splashScreenSettings: {fileID: 11400000, guid: 24ce5413c8ad6994183a62bab68143b3, type: 2}

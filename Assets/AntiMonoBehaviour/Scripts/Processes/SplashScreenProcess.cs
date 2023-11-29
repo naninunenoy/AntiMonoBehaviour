@@ -1,14 +1,19 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
+using AntiMonoBehaviour.Processes.Settings;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
+using VContainer;
 
 namespace AntiMonoBehaviour.Processes
 {
     public class SplashScreenProcess : ProcessBase
     {
-        public UniTask ShowSplashScreenAsync(CancellationToken cancel)
+        [Inject] readonly SplashScreenSettings _settings;
+
+        public async UniTask ShowSplashScreenAsync(CancellationToken cancel)
         {
-            throw new NotImplementedException("TODO");
+            Debug.Log(_settings.SplashScreenMessage);
+            await UniTask.Never(cancel);//一旦ここで停止
         }
     }
 }
