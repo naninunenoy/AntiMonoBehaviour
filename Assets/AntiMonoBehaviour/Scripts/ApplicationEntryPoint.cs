@@ -32,7 +32,7 @@ namespace AntiMonoBehaviour
                 }
 
                 // ゲーム開始
-                /*var gameProcess = new GameProcess();
+                var gameProcess = new GameProcess();
                 var result = await gameProcess.WaitForFinishGameAsync(cancellation);
                 gameProcess.Dispose();
 
@@ -42,7 +42,7 @@ namespace AntiMonoBehaviour
                 var next = await resultProcess.WaitForNextActionAsync(cancellation);
                 resultProcess.Dispose();
 
-                isNextTitle = next is ResultNextActionType.BackToTitle;*/
+                isNextTitle = next is ResultNextActionType.BackToTitle;
             }
         }
     }

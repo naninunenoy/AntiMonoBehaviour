@@ -1,15 +1,16 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace AntiMonoBehaviour.Processes
 {
     public class GameProcess : ProcessBase
     {
-
-        public UniTask<GameResult> WaitForFinishGameAsync(CancellationToken cancel)
+        public async UniTask<GameResult> WaitForFinishGameAsync(CancellationToken cancel)
         {
-            throw new NotImplementedException("TODO");
+            Debug.Log("Game Start");
+            await UniTask.Never(cancel);
+            return null;
         }
     }
 }

@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14b64686b6d4c8f83df7f5f23f9e4b6, type: 3}
-  m_Name: 2_GameProcessSettings
+  m_Script: {fileID: 11500000, guid: f63c30367bff40c58eb3d11e2ce5f8bf, type: 3}
+  m_Name: 2_TitleProcessSettings
   m_EditorClassIdentifier: 
+  titleViewPrefab: {fileID: 6169089898624686269, guid: 76acdc5a129581a4c90b94cc83fd59b3, type: 3}

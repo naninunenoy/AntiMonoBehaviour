@@ -20,6 +20,9 @@ namespace AntiMonoBehaviour
             // 全てのシーンで実行されると鬱陶しいので名前でガード
             if (SceneManager.GetActiveScene().name != "Entry") return;
 
+            // 共通情報のDI
+            builder.RegisterInstance(FindAnyObjectByType<Canvas>());
+
             // 事前にInstallerのインスタンスを作成
             var splashScreenInstaller = new SplashScreenInstaller(splashScreenSettings);
             var titleProcessInstaller = new TitleProcessInstaller(titleProcessSettings);

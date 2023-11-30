@@ -6,8 +6,10 @@ namespace AntiMonoBehaviour.Processes.Settings
         menuName = "AntiMonoBehaviour/SplashScreenProcessSettings", order = 0)]
     public class SplashScreenSettings : SettingsBase
     {
-        [SerializeField] string splashScreenMessage;
+        [SerializeField] GameObject splashScreenViewPrefab;
+        [SerializeField] float splashScreenSeconds;
 
-        public string SplashScreenMessage => splashScreenMessage;
+        public GameObject SplashScreenViewPrefab => splashScreenViewPrefab;
+        public float SplashScreenSeconds => splashScreenSeconds;
     }
 }

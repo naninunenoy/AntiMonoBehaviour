@@ -1,7 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using AntiMonoBehaviour.Processes.Settings;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using VContainer;
 
 namespace AntiMonoBehaviour.Processes
@@ -12,8 +12,9 @@ namespace AntiMonoBehaviour.Processes
 
         public async UniTask ShowSplashScreenAsync(CancellationToken cancel)
         {
-            Debug.Log(_settings.SplashScreenMessage);
-            await UniTask.Yield(cancel);
+            var view = UnityEngine.Object.Instantiate(_settings.SplashScreenViewPrefab, base.Canvas.transform);
+            base.WiiDestroyObjectsOnDispose.Add(view);
+            await UniTask.Delay(TimeSpan.FromSeconds(_settings.SplashScreenSeconds), cancellationToken: cancel);
         }
     }
 }
