@@ -11,6 +11,8 @@ namespace AntiMonoBehaviour
     {
         [Inject] Func<SplashScreenProcess> _createSplashScreenProcess;
         [Inject] Func<TitleProcess> _createTitleProcess;
+        [Inject] Func<GameProcess> _createGameProcess;
+        [Inject] Func<ResultProcess> _createResultProcess;
 
         async UniTask IAsyncStartable.StartAsync(CancellationToken cancellation)
         {
@@ -32,12 +34,12 @@ namespace AntiMonoBehaviour
                 }
 
                 // ゲーム開始
-                var gameProcess = new GameProcess();
+                var gameProcess = _createGameProcess();
                 var result = await gameProcess.WaitForFinishGameAsync(cancellation);
                 gameProcess.Dispose();
 
                 // 結果の表示
-                var resultProcess = new ResultProcess();
+                var resultProcess = _createResultProcess();
                 resultProcess.ShowResult(result);
                 var next = await resultProcess.WaitForNextActionAsync(cancellation);
                 resultProcess.Dispose();

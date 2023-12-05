@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace AntiMonoBehaviour.Processes
 {
@@ -8,7 +9,7 @@ namespace AntiMonoBehaviour.Processes
     {
         public void ShowResult(GameResult result)
         {
-            throw new NotImplementedException("TODO");
+            Debug.Log(result.Score);
         }
 
         public UniTask<ResultNextActionType> WaitForNextActionAsync(CancellationToken cancel)

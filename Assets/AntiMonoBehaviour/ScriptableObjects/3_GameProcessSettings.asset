@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14b64686b6d4c8f83df7f5f23f9e4b6, type: 3}
   m_Name: 3_GameProcessSettings
   m_EditorClassIdentifier: 
+  gameViewPrefab: {fileID: 5952496120589793261, guid: ee164e026edd4af4597d82c5465d81e8, type: 3}
