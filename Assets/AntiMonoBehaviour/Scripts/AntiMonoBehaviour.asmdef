@@ -6,6 +6,7 @@
         "Unity.ResourceManager",
         "UniTask",
         "UniTask.Addressables",
+        "UniRx",
         "VContainer"
     ],
     "includePlatforms": [],

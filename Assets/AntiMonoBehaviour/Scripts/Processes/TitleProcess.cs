@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using AntiMonoBehaviour.Processes.Settings;
+using AntiMonoBehaviour.Views;
 using Cysharp.Threading.Tasks;
-using UnityEngine.UI;
 using VContainer;
 
 namespace AntiMonoBehaviour.Processes
@@ -14,7 +14,7 @@ namespace AntiMonoBehaviour.Processes
         {
             var view = UnityEngine.Object.Instantiate(_settings.TitleViewPrefab, base.Canvas.transform);
             base.WiiDestroyObjectsOnDispose.Add(view);
-            await view.GetComponentInChildren<Button>().OnClickAsync(cancel);
+            await view.GetComponent<ITitleView>().StartButtonClickAsync(cancel);
         }
     }
 }
