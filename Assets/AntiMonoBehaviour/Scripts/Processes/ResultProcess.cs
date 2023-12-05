@@ -1,21 +1,31 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
+using AntiMonoBehaviour.Processes.Settings;
+using AntiMonoBehaviour.Views;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
+using VContainer;
 
 namespace AntiMonoBehaviour.Processes
 {
     public class ResultProcess : ProcessBase
     {
+        [Inject] readonly ResultProcessSettings _settings;
+        IResultView _view;
+
         public void ShowResult(GameResult result)
         {
-            Debug.Log(result.Score);
+            var view = UnityEngine.Object.Instantiate(_settings.ResultViewPrefab, base.Canvas.transform);
+            base.WiiDestroyObjectsOnDispose.Add(view);
+            _view = view.GetComponent<IResultView>();
+
+            _view.SetScore(result.Score);
         }
 
-        public UniTask<ResultNextActionType> WaitForNextActionAsync(CancellationToken cancel)
+        public async UniTask<ResultNextActionType> WaitForNextActionAsync(CancellationToken cancel)
         {
-            throw new NotImplementedException("TODO");
+            var winIndex = await UniTask.WhenAny(
+                _view.ReplayButtonClickAsync(cancel),
+                _view.ToTitleButtonClickAsync(cancel));
+            return winIndex == 0 ? ResultNextActionType.Replay : ResultNextActionType.BackToTitle;
         }
-
     }
 }

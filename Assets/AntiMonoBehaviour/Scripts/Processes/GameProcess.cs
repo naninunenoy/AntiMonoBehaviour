@@ -19,8 +19,9 @@ namespace AntiMonoBehaviour.Processes
 
             var startupSeconds = Time.realtimeSinceStartup;
             await view.GetComponent<IGameView>().FinishButtonClickAsync(cancel);
-            // ゲーム画面を開いた時間をスコアにする
-            return new GameResult(Score: Mathf.FloorToInt(Time.realtimeSinceStartup - startupSeconds));
+            // ゲーム画面を開いていた時間をスコアにする
+            var seconds = Time.realtimeSinceStartup - startupSeconds;
+            return new GameResult(Score: Mathf.FloorToInt(seconds * 100));
         }
     }
 }
