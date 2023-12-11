@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63c30367bff40c58eb3d11e2ce5f8bf, type: 3}
-  m_Name: 2_TitleProcessSettings
+  m_Script: {fileID: 11500000, guid: 2fe68ea82aea43e9abfd3ef494bf03ba, type: 3}
+  m_Name: 01_SplashScreenInstaller
   m_EditorClassIdentifier: 
-  titleViewPrefab: {fileID: 6169089898624686269, guid: 76acdc5a129581a4c90b94cc83fd59b3, type: 3}
+  splashScreenViewPrefab: {fileID: 4980988590688461065, guid: 02fcd4af3bcb04e40ad6bf5b7e6a98aa, type: 3}
+  splashScreenSeconds: 1

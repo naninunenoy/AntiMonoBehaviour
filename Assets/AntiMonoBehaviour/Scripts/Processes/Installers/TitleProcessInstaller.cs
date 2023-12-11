@@ -1,22 +1,20 @@
-﻿using AntiMonoBehaviour.Processes.Settings;
+﻿using UnityEngine;
 using VContainer;
 
 namespace AntiMonoBehaviour.Processes.Installers
 {
-    public class TitleProcessInstaller : ProcessInstallerBase
+    [CreateAssetMenu(fileName = "TitleProcessInstaller",
+        menuName = "AntiMonoBehaviour/TitleProcessInstaller", order = 1)]
+    public class TitleProcessInstaller : ProcessInstallerBase<TitleProcess>, ITitleProcessParams
     {
-        readonly TitleProcessSettings _settings;
-
-        public TitleProcessInstaller(TitleProcessSettings settings)
-        {
-            _settings = settings;
-        }
+        [SerializeField] GameObject titleViewPrefab;
 
         public override void Install(IContainerBuilder builder)
         {
             base.Install(builder);
-            builder.RegisterInstance(_settings);
-            builder.RegisterPlainEntryPoint<TitleProcess>();
+            builder.RegisterInstance(this).As<ITitleProcessParams>();
         }
+
+        public GameObject TitleViewPrefab => titleViewPrefab;
     }
 }

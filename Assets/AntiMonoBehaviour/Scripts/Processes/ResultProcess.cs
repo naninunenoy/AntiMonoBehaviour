@@ -1,19 +1,24 @@
 ﻿using System.Threading;
-using AntiMonoBehaviour.Processes.Settings;
 using AntiMonoBehaviour.Views;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VContainer;
 
 namespace AntiMonoBehaviour.Processes
 {
+    public interface IResultProcessParams
+    {
+        GameObject ResultViewPrefab { get; }
+    }
+
     public class ResultProcess : ProcessBase
     {
-        [Inject] readonly ResultProcessSettings _settings;
+        [Inject] readonly IResultProcessParams _params;
         IResultView _view;
 
         public void ShowResult(GameResult result)
         {
-            var view = UnityEngine.Object.Instantiate(_settings.ResultViewPrefab, base.Canvas.transform);
+            var view = Object.Instantiate(_params.ResultViewPrefab, base.Canvas.transform);
             base.WiiDestroyObjectsOnDispose.Add(view);
             _view = view.GetComponent<IResultView>();
 

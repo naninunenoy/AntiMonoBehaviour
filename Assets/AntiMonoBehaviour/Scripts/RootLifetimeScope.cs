@@ -1,6 +1,5 @@
 using AntiMonoBehaviour.Processes;
 using AntiMonoBehaviour.Processes.Installers;
-using AntiMonoBehaviour.Processes.Settings;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
@@ -10,10 +9,10 @@ namespace AntiMonoBehaviour
 {
     public class RootLifetimeScope : LifetimeScope
     {
-        [SerializeField] SplashScreenSettings splashScreenSettings;
-        [SerializeField] TitleProcessSettings titleProcessSettings;
-        [SerializeField] GameProcessSettings gameProcessSettings;
-        [SerializeField] ResultProcessSettings resultProcessSettings;
+        [SerializeField] SplashScreenInstaller splashScreenInstaller;
+        [SerializeField] TitleProcessInstaller titleProcessInstaller;
+        [SerializeField] GameProcessInstaller gameProcessInstaller;
+        [SerializeField] ResultProcessInstaller resultProcessInstaller;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -22,12 +21,6 @@ namespace AntiMonoBehaviour
 
             // 共通情報のDI
             builder.RegisterInstance(FindAnyObjectByType<Canvas>());
-
-            // 事前にInstallerのインスタンスを作成
-            var splashScreenInstaller = new SplashScreenInstaller(splashScreenSettings);
-            var titleProcessInstaller = new TitleProcessInstaller(titleProcessSettings);
-            var gameProcessInstaller = new GameProcessInstaller(gameProcessSettings);
-            var resultProcessInstaller = new ResultProcessInstaller(resultProcessSettings);
 
             // 各プロセスの生成
             builder.RegisterFactory(() => CreateProcess<SplashScreenProcess>(splashScreenInstaller, this));

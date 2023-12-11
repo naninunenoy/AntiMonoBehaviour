@@ -48,7 +48,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  splashScreenSettings: {fileID: 11400000, guid: 24ce5413c8ad6994183a62bab68143b3, type: 2}
-  titleProcessSettings: {fileID: 11400000, guid: ad388f0130466d0459f01ae9d1c64108, type: 2}
-  gameProcessSettings: {fileID: 11400000, guid: 462339815d2c6064d95b213db7750874, type: 2}
-  resultProcessSettings: {fileID: 11400000, guid: 355e4601ced73c046b8bf9e18b553565, type: 2}
+  splashScreenInstaller: {fileID: 11400000, guid: 0b6467f8491e6254dbc2c93b1355fb12, type: 2}
+  titleProcessInstaller: {fileID: 11400000, guid: 63a9f86224a959d49b9631465e4ee219, type: 2}
+  gameProcessInstaller: {fileID: 11400000, guid: e96b2a7a01d740e4fbed03a607ef4b8f, type: 2}
+  resultProcessInstaller: {fileID: 11400000, guid: 6fb447d41a1be8749839341c4f9c041e, type: 2}

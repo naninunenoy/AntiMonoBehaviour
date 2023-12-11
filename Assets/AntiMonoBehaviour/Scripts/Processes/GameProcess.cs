@@ -1,5 +1,4 @@
 ﻿using System.Threading;
-using AntiMonoBehaviour.Processes.Settings;
 using AntiMonoBehaviour.Views;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -7,14 +6,18 @@ using VContainer;
 
 namespace AntiMonoBehaviour.Processes
 {
+    public interface IGameProcessParams
+    {
+        GameObject GameViewPrefab { get; }
+    }
 
     public class GameProcess : ProcessBase
     {
-        [Inject] readonly GameProcessSettings _settings;
+        [Inject] readonly IGameProcessParams _params;
 
         public async UniTask<GameResult> WaitForFinishGameAsync(CancellationToken cancel)
         {
-            var view = Object.Instantiate(_settings.GameViewPrefab, base.Canvas.transform);
+            var view = Object.Instantiate(_params.GameViewPrefab, base.Canvas.transform);
             base.WiiDestroyObjectsOnDispose.Add(view);
 
             var startupSeconds = Time.realtimeSinceStartup;

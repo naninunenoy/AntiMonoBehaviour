@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3155f43c7f904fe58a695724f9dcb16a, type: 3}
-  m_Name: 4_ResultProcessSettings
+  m_Script: {fileID: 11500000, guid: 817e2e4db40d483c9803a1dde398cacd, type: 3}
+  m_Name: 02_TitleProcessInstaller
   m_EditorClassIdentifier: 
-  resultViewPrefab: {fileID: 4529511159853944651, guid: 51bef7249e33f914ca61b4437a107413, type: 3}
+  titleViewPrefab: {fileID: 6169089898624686269, guid: 76acdc5a129581a4c90b94cc83fd59b3, type: 3}

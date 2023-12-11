@@ -1,22 +1,22 @@
-﻿using AntiMonoBehaviour.Processes.Settings;
+﻿using UnityEngine;
 using VContainer;
 
 namespace AntiMonoBehaviour.Processes.Installers
 {
-    public class SplashScreenInstaller : ProcessInstallerBase
+    [CreateAssetMenu(fileName = "SplashScreenInstaller",
+        menuName = "AntiMonoBehaviour/SplashScreenInstaller", order = 0)]
+    public class SplashScreenInstaller : ProcessInstallerBase<SplashScreenProcess>, ISplashScreenParams
     {
-        readonly SplashScreenSettings _settings;
-
-        public SplashScreenInstaller(SplashScreenSettings settings)
-        {
-            _settings = settings;
-        }
+        [SerializeField] GameObject splashScreenViewPrefab;
+        [SerializeField] float splashScreenSeconds;
 
         public override void Install(IContainerBuilder builder)
         {
             base.Install(builder);
-            builder.RegisterInstance(_settings);
-            builder.RegisterPlainEntryPoint<SplashScreenProcess>();
+            builder.RegisterInstance(this).As<ISplashScreenParams>();
         }
+
+        public GameObject SplashScreenViewPrefab => splashScreenViewPrefab;
+        public float SplashScreenSeconds => splashScreenSeconds;
     }
 }
